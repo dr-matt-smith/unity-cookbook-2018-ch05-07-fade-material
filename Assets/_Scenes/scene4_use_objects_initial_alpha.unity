@@ -146,7 +146,7 @@ MonoBehaviour:
   useMaterialAlpha: 1
   fadeDurationSeconds: 1
   alphaStart: 1
-  alphaEnd: 1
+  alphaEnd: 0
 --- !u!135 &512423202
 SphereCollider:
   m_ObjectHideFlags: 0

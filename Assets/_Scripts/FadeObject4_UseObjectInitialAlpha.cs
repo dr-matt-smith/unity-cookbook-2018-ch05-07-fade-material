@@ -75,13 +75,21 @@ public class FadeObject4_UseObjectInitialAlpha: MonoBehaviour
 		isFading = true;
 	}
 
+	/*
+	 * calculate current proportion of fading
+	 * use Lerp() to calculate new alpha value (from alphaStart ... alphaEnd)
+	 * update Material's alpha
+	 *
+	 * finaly, test whether fading is now complete  (fadePercentage >= 1)
+	 */
 	private void FadeAlpha()
 	{
-		float fadeProgress = Time.time - startTime;
-		float alpha = Mathf.Lerp(alphaStart, alphaEnd, fadeProgress / fadeDurationSeconds);
+		float timeFading = Time.time - startTime;
+		float fadePercentage = timeFading / fadeDurationSeconds;
+		float alpha = Mathf.Lerp(alphaStart, alphaEnd, fadePercentage);
 		UpdateMaterialAlpha(alpha);
 
-		if (fadeProgress >= fadeDurationSeconds)
+		if (fadePercentage >= 1)
 			isFading = false;
 	}
 
